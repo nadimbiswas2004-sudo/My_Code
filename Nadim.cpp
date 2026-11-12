@@ -1,39 +1,38 @@
 #include<iostream>
 using namespace std;
-class space
+void combain(int a[],int l,int mid,int h)
 {
-	private:
-		float x,y,z;
-		public:
-			space(){    };
-			space(int a,int b,int c);
-			void putdata(void);
-	friend	space operator/(const space &a,const space &b);
-};
-space::space(int a,int b,int c)
-{
-	x=a;y=b;z=c;
+
+    int i=l
+    int j=mid+1
+    int c[(h-l)+1];
+    int s=0;
+    while(i<mid&&j<=h)
+    {
+
+        if(a[i]<=a[j]){
+            c[s++]=a[i++];
+        }
+        else{
+            c[s++]=a[j++];
+
+        }
+    }
+    while(j<=h){
+        c[s++]=a[j++;]
+    }
+     while(i<=mid){
+        c[s++]=a[i++;]
+    }
+     for(int z=l;z<=h;z++){
+        a[z]=c[z-l];
+    }
 }
-void space::putdata()
-{
-	cout<<"X="<<x<<endl<<"Y="<<y<<endl<<"Z="<<z<<endl;
-}
-space operator/(const space &a,const space &b)
-{
-	space s;
-	 s.x=a.x/b.x;
-	 s.y=a.y/b.y;
-	 s.z=a.z/b.z;
-	return s;
-}
+
 int main()
 {
-	space s1,s2,s3;
-	s1=space(3,4,5);
-	s2=space(8,7,6);
-	s3=s1/s2;
-	s1.putdata();
-	s2.putdata();
-	s3.putdata();
-	return 0;
+
+
+
+    return 0;
 }
